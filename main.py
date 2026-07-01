@@ -44,8 +44,8 @@ def main():
     email_list:list[Email] = []
     
     with MailBox('imap.mail.me.com').login(ICLOUD_EMAIL, ICLOUD_PASSWORD) as mailbox:
-        # for msg in mailbox.fetch(AND(seen=False),mark_seen=True, bulk=True):
-        for msg in mailbox.fetch(mark_seen=True, bulk=True):
+        for msg in mailbox.fetch(AND(seen=False),mark_seen=True, bulk=True):
+        # for msg in mailbox.fetch(mark_seen=True, bulk=True):
             email: Email = {
                 "date": msg.date_str,
                 "subject": msg.subject,
